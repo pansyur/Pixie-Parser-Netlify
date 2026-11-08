@@ -1,0 +1,30 @@
+[
+  {
+    "id": "tab_default_1",
+    "name": "Charm 1",
+    "mainText": "Welcome to Pixie Parser! ✨🧚‍♀️\nEvery paste has its own charm on the bracelet.\n\nPaste your unformatted content into this box.\nConfigure line splitting, delimiters, filters, or find & replace.\nYour content syncs automatically to the cloud database with no size limits!\n\nTry parsing this sample text by clicking \"✨ Parse Content\" below!\n\n--- Block 2 Starts Here ---\nPixie Parser splits content by empty lines or your chosen delimiter count.\nIt can also inject extra breaks around target keywords!\n\n--- Block 3 Starts Here ---\nCopy single blocks with one tap, or grab everything at once with \"Copy All Blocks\".\nEnjoy smooth, fairy-dusted text processing! 🌸",
+    "segments": [],
+    "config": {
+      "lineCount": "5",
+      "breakPos": "after",
+      "breakLines": "1",
+      "breakTarget": "",
+      "filterContaining": [],
+      "filterContainingLogic": "or",
+      "filterNotContaining": [],
+      "filterNotContainingLogic": "or",
+      "truncateDelimiters": [],
+      "truncateDirection": "after",
+      "lineCutoffTexts": [],
+      "lineCutoffDirection": "after",
+      "frRules": [
+        {
+          "find": "",
+          "replace": ""
+        }
+      ]
+    },
+    "position": 0,
+    "updatedAt": "2026-11-04T23:49:09.482Z"
+  }
+]

@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --font-heading: 'Fredoka', sans-serif;
+    --font-body: 'Quicksand', sans-serif;
+    --font-display: 'Fredoka', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 12% 8%, rgba(255,111,181,0.25), transparent 40%),
+      radial-gradient(circle at 88% 15%, rgba(46,196,182,0.20), transparent 45%),
+      radial-gradient(circle at 50% 100%, rgba(108,74,182,0.25), transparent 50%),
+      linear-gradient(160deg, #FFF9FC 0%, #F6EEFF 45%, #FDEFF7 100%);
+    min-height: 100vh;
+  }
+}
+
+/* ===== Pixie Parser fairy theme ===== */
+:root {
+  --dusk: #6C4AB6;
+  --dusk-deep: #4B2E83;
+  --pixie-pink: #FF6FB5;
+  --sunbeam: #FFD166;
+  --glow-teal: #2EC4B6;
+  --cream: #FFF9FC;
+  --ink: #2B1B3D;
+}
+
+.pixie-title {
+  background: linear-gradient(135deg, var(--dusk), var(--pixie-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+#floaters { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.floater {
+  position: absolute; bottom: -10%; opacity: 0;
+  animation: rise linear infinite;
+  filter: drop-shadow(0 0 6px rgba(255,209,102,0.6));
+}
+@keyframes rise {
+  0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
+  10% { opacity: 0.9; }
+  90% { opacity: 0.7; }
+  100% { transform: translateY(-115vh) rotate(300deg) scale(1.1); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .floater { animation: none; display: none; }
+}
+
+.wing-card {
+  position: relative;
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.9);
+  border-radius: 28px;
+  box-shadow: 0 20px 45px -15px rgba(108,74,182,0.28), 0 2px 8px rgba(255,111,181,0.12) inset;
+}
+.wing-card::before {
+  content: ""; position: absolute; inset: 0; border-radius: 28px; padding: 1.5px;
+  background: linear-gradient(120deg, var(--pixie-pink), var(--sunbeam), var(--glow-teal), var(--dusk));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0.55; pointer-events: none;
+}
+.sticker {
+  position: absolute; font-size: 1.4rem;
+  filter: drop-shadow(0 3px 4px rgba(75,46,131,0.25));
+  animation: bob 3.4s ease-in-out infinite;
+  z-index: 2;
+}
+@keyframes bob {
+  0%,100% { transform: translateY(0) rotate(var(--rot,-8deg)); }
+  50% { transform: translateY(-6px) rotate(var(--rot,-8deg)); }
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--pixie-pink), var(--dusk));
+  color: #fff;
+}
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-primary:active { transform: scale(0.97); }
+
+.tab-pill { transition: all .18s ease; }
+.tab-pill.active {
+  background: linear-gradient(135deg, var(--pixie-pink), var(--dusk));
+  color: #fff;
+  box-shadow: 0 6px 16px -4px rgba(108,74,182,0.5);
+}
+.tab-pill:not(.active) { background: #fff; color: var(--dusk-deep); }
+
+.nav-btn:hover { color: var(--pixie-pink); }
+
+input, select, textarea { font-family: 'Quicksand', sans-serif; }
+input[type=text], input[type=number], input[type=password], select, textarea {
+  background: #fff; border: 1.5px solid #f0dff0; border-radius: 16px;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none; border-color: var(--pixie-pink);
+  box-shadow: 0 0 0 3px rgba(255,111,181,0.18);
+}
+
+.status-dot { width: 7px; height: 7px; border-radius: 50%; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #e9c9e6; border-radius: 8px; }
