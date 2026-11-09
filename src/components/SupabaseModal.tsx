@@ -235,11 +235,11 @@ export default function SupabaseModal({
             </div>
           </div>
 
-          {/* Step 3: Netlify / Cloud Deploy Note */}
+          {/* Step 3: Vercel / Cloud Deploy Note */}
           <div className="p-3 rounded-2xl bg-amber-50/60 border border-amber-200/60 text-xs text-amber-900 flex items-start gap-2">
             <Globe className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
             <div>
-              <strong>For Netlify (or Cloudflare) deployment:</strong> You can also set these environment variables in your Netlify dashboard (Site configuration &rarr; Environment variables):
+              <strong>For Vercel deployment:</strong> You can set these environment variables in your Vercel project dashboard (Settings &rarr; Environment Variables):
               <code className="mx-1 px-1 py-0.5 bg-amber-100 rounded text-[11px]">VITE_SUPABASE_URL</code> and{' '}
               <code className="mx-1 px-1 py-0.5 bg-amber-100 rounded text-[11px]">VITE_SUPABASE_ANON_KEY</code>.
             </div>

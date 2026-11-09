@@ -69,7 +69,7 @@ export default function Header({
             Pixie Parser
           </h1>
           <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-pink-100/80 text-pink-700 border border-pink-200 uppercase tracking-wider">
-            Netlify Ready
+            Vercel Ready
           </span>
         </div>
 

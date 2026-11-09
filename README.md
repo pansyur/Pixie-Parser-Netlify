@@ -1,62 +1,43 @@
 # 🧚‍♀️ Pixie Parser
 
-A whimsical, high-performance multi-paste workshop and text segmenter with **free real-time cross-device sync powered by Supabase**, deployable directly to **Netlify** (and Cloudflare Pages), with **no login required** and **zero content length limits**.
+A whimsical, high-performance multi-paste workshop and text segmenter with **free real-time cross-device sync powered by Supabase**, deployable directly to **Vercel**, with **no login required** and **zero content length limits**.
 
 ---
 
-## 🚀 Netlify Deployment
+## ▲ Vercel Deployment
 
-Pixie Parser is configured with zero-config Netlify settings (`netlify.toml` and `public/_redirects` for Single Page Application routing and caching).
+Pixie Parser is fully configured for Vercel with zero-config Vite auto-detection and custom `vercel.json` rewrite routing for client-side SPAs.
 
-### Method 1: Deploy with Netlify & Git (Recommended)
+### Method 1: Deploy with Vercel & Git (Recommended)
 
-1. **Push this repo to GitHub / GitLab / Bitbucket**.
-2. Log into [Netlify Dashboard](https://app.netlify.com/) and click **"Add new site"** &rarr; **"Import an existing project"**.
-3. Select your repository. Netlify will auto-detect the configuration from `netlify.toml`:
-   - **Base directory**: `.` (root)
-   - **Build command**: `npm run build`
-   - **Publish directory**: `dist`
-4. *(Optional)* Under **Environment variables**, add:
+1. **Push your code to GitHub, GitLab, or Bitbucket**.
+2. Log into the [Vercel Dashboard](https://vercel.com/dashboard) and click **"Add New..."** &rarr; **"Project"**.
+3. Import your repository. Vercel automatically detects Vite:
+   - **Framework Preset**: `Vite`
+   - **Root Directory**: `./`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+4. *(Optional)* Under **Environment Variables**, add your Supabase credentials:
    - `VITE_SUPABASE_URL`: `https://your-project.supabase.co`
    - `VITE_SUPABASE_ANON_KEY`: `your-anon-public-key`
-   *(You can also connect Supabase directly in the running web app at any time!)*
-5. Click **"Deploy site"**! Your app will be live with full client-side routing and edge CDN distribution.
+   *(You can also connect Supabase directly within the web app at runtime using the "Connect Supabase" button!)*
+5. Click **"Deploy"**! Vercel will build and assign you a global, edge-cached `.vercel.app` domain.
 
 ---
 
-### Method 2: Deploy via Netlify CLI
+### Method 2: Deploy via Vercel CLI
 
-You can deploy directly from your local terminal using the Netlify CLI:
+You can also deploy in seconds directly from your terminal:
 
 ```bash
-# 1. Install Netlify CLI (if not already installed)
-npm install -g netlify-cli
+# 1. Deploy preview build
+npx vercel
 
-# 2. Build the production bundle
-npm run build
-
-# 3. Deploy to production
-netlify deploy --prod --dir=dist
+# 2. Deploy directly to production
+npx vercel --prod
 ```
 
-Or for a quick one-off preview deploy without installing globally:
-```bash
-npx netlify deploy --dir=dist
-```
-
----
-
-## ⚡ Cloudflare Pages Deployment (Alternative)
-
-If you also wish to deploy to Cloudflare Pages:
-
-1. Push this repository to **GitHub**.
-2. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/) &rarr; **Workers & Pages** &rarr; **Create application** &rarr; **Pages** &rarr; **Connect to Git**.
-3. Configure build settings:
-   - **Framework preset**: `Vite`
-   - **Build command**: `npm run build`
-   - **Build output directory**: `dist`
-4. Click **Save and Deploy**. (The repository already includes `wrangler.toml` and `public/_redirects`).
+The included `vercel.json` automatically takes care of routing all SPA paths to `index.html` and setting optimal caching headers on immutable assets.
 
 ---
 
@@ -104,13 +85,13 @@ alter publication supabase_realtime add table paste_tabs;
 
 You can connect in either of two ways:
 - **In-App**: Click the **Connect Supabase** button in the header and paste your **Project URL** and **Public Anon Key**.
-- **Environment Variables**: Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in Netlify Dashboard (Site configuration &rarr; Environment variables) or `.env.local`.
+- **Environment Variables**: Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in Vercel Project Settings (Settings &rarr; Environment Variables) or `.env.local`.
 
 ---
 
 ## ✨ Features
 
-- **Netlify & Edge Optimized**: Pre-configured `netlify.toml` with SPA 200 rewrite rules and asset caching headers.
+- **Vercel Edge Optimized**: Pre-configured `vercel.json` with client-side SPA fallback and static asset caching.
 - **No Login Required**: Jump right in without creating an account or verifying email.
 - **No Content Length Limits**: PostgreSQL `text` columns allow storing megabytes of text without 1MB document limitations.
 - **Live Real-time Cross-Device Sync**: Changes on one device update immediately on all other devices via Supabase Realtime subscriptions.
